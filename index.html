@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ofício de Esporte</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+
+<body>
+    <div class="container">
+      <h1>Ofício de Esporte Final</h1>
+      <form>
+        <label for="nomeSolicitante">Nome do solicitante:</label>
+        <input type="text" id="nomeSolicitante" name="nomeSolicitante" placeholder="Digite seu nome" maxlength="50" required>
+  
+        <label for="numeroTelefone">Número de telefone:</label>
+        <input type="text" id="numeroTelefone" name="numeroTelefone" placeholder="Digite seu telefone" required>
+  
+        <label for="nomeTime">Nome do time solicitante:</label>
+        <input type="text" id="nomeTime" name="nomeTime" placeholder="Digite o nome do time" maxlength="50" required>
+  
+        <label>Tipo de solicitação:</label>
+  
+        <div class="radio-container">
+          <input type="radio" id="estadioMunicipal" name="opcao" value="estadioMunicipal">
+          <label for="estadioMunicipal">Estádio Municipal</label>
+  
+          <input type="radio" id="transporte" name="opcao" value="transporte">
+          <label for="transporte">Transporte</label>
+        </div>
+  
+        <div>
+        <label for="dataDesejada" class="date-input">Data desejada:</label>
+        <input type="date" id="dataDesejada" name="dataDesejada" class="date-input">
+  
+        <label for="horaInicial" class="start-time-input">Hora inicial:</label>
+        <input type="time" id="horaInicial" name="horaInicial" class="start-time-input">
+  
+        <label for="horaFinal" class="end-time-input">Hora final:</label>
+        <input type="time" id="horaFinal" name="horaFinal" class="end-time-input">
+        </div>
+  
+        <div class="transporte-input">
+          <label for="local" class="transporte-input">Local:</label>
+          <input type="text" id="local" name="local" placeholder="Digite a localidade (cidade)">
+  
+          <label for="data" class="transporte-input">Data:</label>
+          <input type="date" id="data" name="data">
+  
+          <label for="horaJogo" class="transporte-input">Hora do jogo:</label>
+          <input type="time" id="horaJogo" name="horaJogo">
+  
+          <label for="horaSaida" class="transporte-input">Hora de saída:</label>
+          <input type="time" id="horaSaida" name="horaSaida">
+  
+        </div>
+  
+        <div class="motivo-container">
+          <label>Motivo:</label>
+          <div class="radio-container">
+            <input type="radio" id="amistoso" name="motivo" value="amistoso">
+            <label for="amistoso">Amistoso</label>
+  
+            <input type="radio" id="campeonato" name="motivo" value="campeonato">
+            <label for="campeonato">Campeonato</label>
+          </div>
+        </div>
+        <button id="btnGerarOficio" class="btn-gerar-oficio">Gerar Ofício</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+
+  </body>
+  </html>
