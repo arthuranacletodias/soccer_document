@@ -58,7 +58,7 @@ $(document).ready(function() {
           { text: 'http://www.andrelandia.mg.gov.br \n\n\n', fontSize: 8, alignment: 'center' },
           { text: 'Andrelândia, ' + dataAtual, fontSize: 12, alignment: 'right' },
           { text: '\n\nOfício', fontSize: 12, alignment: 'left'},
-          { text: '\n\n REF.: APOIO AO ESPORTE', fontSize: 12, alignment: 'left'},
+          { text: '\n\n REF.: Solicitação de apoio para Atividades Esportivas', fontSize: 12, alignment: 'left'},
           { text: '\n\n\n Solicito ###########################################################.',
             fontSize: 12,
             margin: [0, 0, 0, 10],
