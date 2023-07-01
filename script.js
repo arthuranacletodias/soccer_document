@@ -22,6 +22,16 @@ $(document).ready(function() {
         $('.motivo-container').hide();
     });
 
+    $('#btnGerarOficio').hide(); // Oculta o botão "Gerar Ofício"
+
+    // Verifica se a opção selecionada é "Amistoso" ou "Campeonato"
+    $('input[name="motivo"]').on('change', function() {
+      if ($(this).val() === 'amistoso' || $(this).val() === 'campeonato') {
+        $('#btnGerarOficio').show(); // Mostra o botão "Gerar Ofício"
+      }
+    });
+
+
 // Exibir/ocultar botões de motivo ao preencher/limpar data e horários ou selecionar/desselecionar "Transporte"
     $('#dataDesejada, #horaInicial, #horaFinal, #local, #horaJogo, #horaSaida').on('change', function() {
       if ($('#dataDesejada').val() !== '' && $('#horaInicial').val() !== '' && $('#horaFinal').val() !== '' && $('input[name="opcao"]:checked').val() === 'estadioMunicipal') {
@@ -32,6 +42,7 @@ $(document).ready(function() {
         $('.motivo-container').hide();
       } 
     });
+
 
 // Passo 1: Coletar os dados preenchidos pelo usuário.
     $('#btnGerarOficio').click(function() {
@@ -49,6 +60,9 @@ $(document).ready(function() {
       var horaSaida = $('#horaSaida').val();
       var motivo = $('input[name="motivo"]:checked').val();
 
+// Verificar a opção selecionada
+      if (opcao === 'estadioMunicipal') {
+// Configurar docDefinition para Estádio Municipal
       var docDefinition = {
         content: [
           { text: 'PREFEITURA MUNICIPAL DE ANDRELÂNDIA', fontSize: 20, bold: true,alignment: 'center', margin: [0, 0, 0, 2] },
@@ -59,14 +73,30 @@ $(document).ready(function() {
           { text: 'Andrelândia, ' + dataAtual, fontSize: 12, alignment: 'right' },
           { text: '\n\nOfício', fontSize: 12, alignment: 'left'},
           { text: '\n\n REF.: Solicitação de apoio para Atividades Esportivas', fontSize: 12, alignment: 'left'},
-          { text: '\n\n\n Solicito ###########################################################.',
+          { text: '\n\n\n Campo ###########################################################.',
             fontSize: 12,
             margin: [0, 0, 0, 10],
             width: 400, // Largura máxima do parágrafo
             alignment: 'justify' // Alinhamento do texto (opcional)
           },
-
-
+        ]}
+      } else if (opcao === 'transporte') {
+      var docDefinition = {
+        content: [
+          { text: 'PREFEITURA MUNICIPAL DE ANDRELÂNDIA', fontSize: 20, bold: true,alignment: 'center', margin: [0, 0, 0, 2] },
+          { text: 'ESTADO DE MINAS GERAIS', fontSize: 8, alignment: 'center' },
+          { text: 'Avenida Nossa Senhora Do Porto Da Eterna Salvação Nº 208, Centro / CEP 37300-000 - Andrelândia - MG', fontSize: 8, alignment: 'center' },
+          { text: 'Fone/Fax: (35) 3325-1177/1472', fontSize: 8, alignment: 'center' },
+          { text: 'http://www.andrelandia.mg.gov.br \n\n\n', fontSize: 8, alignment: 'center' },
+          { text: 'Andrelândia, ' + dataAtual, fontSize: 12, alignment: 'right' },
+          { text: '\n\nOfício', fontSize: 12, alignment: 'left'},
+          { text: '\n\n REF.: Solicitação de apoio para Atividades Esportivas', fontSize: 12, alignment: 'left'},
+          { text: '\n\n\n Transporte ###########################################################.',
+            fontSize: 12,
+            margin: [0, 0, 0, 10],
+            width: 400, // Largura máxima do parágrafo
+            alignment: 'justify' // Alinhamento do texto (opcional)
+          },
           //{ text: 'Nome do Solicitante: ' + nomeSolicitante, fontSize: 12 },
           //{ text: 'Número de Telefone: ' + numeroTelefone, fontSize: 12 },
           //{ text: 'Nome do Time Solicitante: ' + nomeTime, fontSize: 12 },
@@ -80,8 +110,9 @@ $(document).ready(function() {
           //},
         ]
       };
-
+    }
 // Gerando o arquivo PDF
-      pdfMake.createPdf(docDefinition).download('oficio.pdf');
+    pdfMake.createPdf(docDefinition).download('oficio.pdf');
+    
     });
 });

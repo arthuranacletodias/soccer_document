@@ -1,139 +1,144 @@
-    /* Estilos CSS para a página */
+/* Estilos CSS para a página */
 
-    /* Define o layout flex para centralizar o conteúdo */
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #009B3A; /* Verde da bandeira do Brasil */
-        color: #FEDF00; /* Amarelo da bandeira do Brasil */
-        font-family: Arial, sans-serif;
-      }
-  
-      /* Estilos do container principal */
-      .container {
-        text-align: center;
-        padding: 20px;
-        background-color: #002776; /* Azul da bandeira do Brasil */
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        width: 50vw; /* 30% da largura da tela */
-      }
-  
-      /* Estilos para o título */
-      h1 {
-        font-size: 32px;
-        margin-bottom: 20px;
-      }
-  
-      /* Estilos para o formulário */
-      form {
-        margin-top: 20px;
-      }
-  
-      /* Estilos para os rótulos */
-      label {
-        display: block;
-        font-size: 18px;
-        margin-bottom: 10px;
-        margin-top: 10px; /* Margem superior */
-      }
-  
-      /* Estilos para os campos de texto */
-      input[type="text"] {
-        padding: 10px;
-        font-size: 16px;
-        border: 2px solid white; /* Borda branca */
-        border-radius: 5px;
-        background-color: #002776; /* Azul da bandeira do Brasil */
-        color: white; /* Texto branco */
-        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-        width: 80%; /* Largura de 100% */
-        margin-bottom: 10px; /* Margem inferior */
-      }
-  
-      /* Estilos para os campos de texto com foco */
-      input[type="text"]:focus {
-        outline: none;
-        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
-      }
-      
-      /* Estilos para o container dos botões de rádio */
-      .radio-container {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 10px;
-      }
-  
-      /* Estilos para os rótulos dos botões de rádio */
-      .radio-container label {
-        margin: 0 10px;
-      }
-  
-      /* Estilos para os botões de rádio ocultos */
-      .radio-container input[type="radio"] {
-        display: none;
-      }
-  
-      /* Estilos para os rótulos dos botões de rádio */
-      .radio-container label {
-        padding: 10px 20px;
-        background-color: #002776; /* Azul da bandeira do Brasil */
-        color: white; /* Texto branco */
-        border: 2px solid white; /* Borda branca */
-        border-radius: 5px;
-        cursor: pointer;
-      }
-  
-      /* Estilos para o botão de rádio selecionado */
-      .radio-container input[type="radio"]:checked + label {
-        background-color: #FEDF00; /* Amarelo da bandeira do Brasil */
-        color: #002776; /* Azul da bandeira do Brasil */
-      }
-  
-      /* Estilos para os campos de data e hora */
-      .date-input,
-      .start-time-input,
-      .end-time-input {
-        margin: 0 auto;
-        display: none;
-      }
-      .transporte-input {
-        display: none;
-        margin: 0 auto;
-      }
-  
-      /* Estilos para os botões de motivo */
-      .motivo-container {
-        display: none;
-        margin-top: 20px;
-      }
-  
-      /* Estilos para os botões de motivo */
-      .motivo-container label {
-        padding: 10px 20px;
-        background-color: #002776; /* Azul da bandeira do Brasil */
-        color: white; /* Texto branco */
-        border: 2px solid white; /* Borda branca */
-        border-radius: 5px;
-        cursor: pointer;
-      }
-  
-      /* Estilos para o botão de motivo selecionado */
-      .motivo-container input[type="radio"]:checked + label {
-        background-color: #FEDF00; /* Amarelo da bandeira do Brasil */
-        color: #002776; /* Azul da bandeira do Brasil */
-      }
-      
-      /* Estilos adicionais para o botão "Gerar Ofício" */
-      .btn-gerar-oficio {
-        background-color: #FEDF00; /* Amarelo da bandeira do Brasil */
-        color: #002776; /* Azul da bandeira do Brasil */
-        padding: 10px 20px;
-        font-size: 16px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 20px;
-      }
+/* Define o layout flex para centralizar o conteúdo */
+body {
+  display: flex;
+  margin-top: 0;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  background-color: #062031; /* Azul claro */
+  color: #333333; /* Texto preto */
+  font-family: Arial, sans-serif;
+}
+
+/* Estilos do container principal */
+.container {
+  text-align: center;
+  padding: 20px;
+  background-color: #FFFFFF; /* Fundo branco */
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  width: 80%; /* 30% da largura da tela */
+  max-width: 500px; /* Defina um valor máximo para evitar que o contêiner fique muito largo em telas grandes */
+}
+
+/* Estilos para o título */
+h1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-top: 0;
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #006699; /* Azul médio */
+}
+
+/* Estilos para o formulário */
+form {
+  margin-top: 20px;
+}
+
+/* Estilos para os rótulos */
+label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+  margin-top: 5px; /* Margem superior */
+  color: #006699; /* Texto azul médio */
+}
+
+/* Estilos para os campos de texto */
+input[type="text"] {
+  padding: 10px;
+  font-size: 12px;
+  border: 2px solid #CCCCCC; /* Borda suave */
+  border-radius: 5px;
+  background-color: #E5F1F9; /* Fundo cinza claro */
+  color: #006699; /* Texto preto */
+  width: 50%; /* Largura de 100% */
+  margin-bottom: 0px; /* Margem inferior */
+}
+
+/* Estilos para os campos de texto com foco */
+input[type="text"]:focus {
+  outline: none;
+  border-color: #006699; /* Azul médio */
+}
+
+/* Estilos para o container dos botões de rádio */
+.radio-container {
+  display: flex;
+  flex-wrap: wrap; /* Permitir que os botões sejam quebrados em várias linhas */
+  justify-content: center;
+  margin-bottom: 0px;
+}
+
+/* Estilos para os rótulos dos botões de rádio */
+.radio-container label {
+  margin: 0 0px;
+}
+
+/* Estilos para os botões de rádio ocultos */
+.radio-container input[type="radio"] {
+  display: none;
+}
+
+/* Estilos para os rótulos dos botões de rádio */
+.radio-container label {
+  padding: 10px 20px;
+  background-color: #E5F1F9; /* Azul claro */
+  color: #333333; /* Texto preto */
+  border: 2px solid #CCCCCC; /* Borda suave */
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px; /* Adicione uma margem para separar os botões */
+}
+
+/* Estilos para o botão de rádio selecionado */
+.radio-container input[type="radio"]:checked + label {
+  background-color: #006699; /* Azul médio */
+  color: #FFFFFF; /* Texto branco */
+}
+
+/* Estilos para os campos de data e hora */
+.date-input,
+.start-time-input,
+.end-time-input {
+  margin: 5px auto;
+  display: none;
+  cursor: pointer;
+}
+
+.transporte-input {
+  display: none;
+  margin: 5px auto;
+}
+
+/* Estilos para os botões de motivo */
+.motivo-container {
+  display: none;
+  margin-top: 20px;
+}
+
+/* Estilos para os botões de motivo */
+.motivo-container label {
+  color: #006699; /* azul médio */
+  border-radius: 10px;
+}
+
+/* Estilos para o botão de motivo selecionado */
+.motivo-container input[type="radio"]:checked + label {
+  background-color: #006699; /* Azul médio */
+  color: #FFFFFF; /* Texto branco */
+}
+
+/* Estilos adicionais para o botão "Gerar Ofício" */
+.btn-gerar-oficio {
+  background-color: #006699; /* Azul médio */
+  color: #FFFFFF; /* Texto branco */
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
