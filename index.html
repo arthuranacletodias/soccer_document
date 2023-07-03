@@ -19,13 +19,13 @@
       <h1>Ofício de Futebol Amador</h1>
       <form>
         <label for="nomeSolicitante">Nome do solicitante</label>
-        <input type="text" id="nomeSolicitante" name="nomeSolicitante" placeholder="Digite seu nome" maxlength="50" required>
+        <input type="text" id="nomeSolicitante" name="nomeSolicitante" placeholder="Digite seu nome" maxlength="50">
   
         <label for="numeroTelefone">Número de telefone</label>
-        <input type="text" id="numeroTelefone" name="numeroTelefone" placeholder="Digite seu telefone" required>
+        <input type="text" id="numeroTelefone" name="numeroTelefone" placeholder="Digite seu telefone">
   
         <label for="nomeTime">Nome do time solicitante</label>
-        <input type="text" id="nomeTime" name="nomeTime" placeholder="Digite o nome do time" maxlength="50" required>
+        <input type="text" id="nomeTime" name="nomeTime" placeholder="Digite o nome do time" maxlength="50">
   
         <label>Tipo de solicitação</label>
   
@@ -49,11 +49,11 @@
         </div>
   
         <div class="transporte-input">
-          <label for="local" class="transporte-input">Local do jogo</label>
-          <input type="text" id="local" name="local" placeholder="Digite o local do jogo  ">
+          <label for="localviagem" class="transporte-input">Local do jogo</label>
+          <input type="text" id="localviagem" name="localviagem" placeholder="Digite o localviagem do jogo  ">
   
-          <label for="data" class="transporte-input">Data da viagem</label>
-          <input type="date" id="data" name="data">
+          <label for="dataviagem" class="transporte-input">Data da viagem</label>
+          <input type="date" id="dataviagem" name="dataviagem">
   
           <label for="horaJogo" class="transporte-input">Hora do jogo</label>
           <input type="time" id="horaJogo" name="horaJogo">
@@ -65,18 +65,16 @@
         <div class="motivo-container">
           <label>Motivo da solicitação</label>
           <div class="radio-container">
-            <input type="radio" id="amistoso" name="motivo" value="amistoso">
-            <label for="amistoso">Amistoso</label>
+            <input type="radio" id="Amistoso" name="motivo" value="Amistoso">
+            <label for="Amistoso">Amistoso</label>
   
-            <input type="radio" id="campeonato" name="motivo" value="campeonato">
-            <label for="campeonato">Campeonato</label>
+            <input type="radio" id="Campeonato" name="motivo" value="Campeonato">
+            <label for="Campeonato">Campeonato</label>
           </div>
         </div>
         <button id="btnGerarOficio" class="btn-gerar-oficio">Gerar Ofício</button>
       </form>
     </div>
-
     <script src="script.js"></script>
-
   </body>
   </html>

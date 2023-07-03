@@ -99,7 +99,7 @@ input[type="text"]:focus {
   color: #FFFFFF; /* Texto branco */
 }
 
-/* Estilos para os campos de data e hora */
+/* Estilos para os campos de   e hora */
 .date-input,
 .start-time-input,
 .end-time-input {

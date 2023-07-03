@@ -26,17 +26,17 @@ $(document).ready(function() {
 
     // Verifica se a opção selecionada é "Amistoso" ou "Campeonato"
     $('input[name="motivo"]').on('change', function() {
-      if ($(this).val() === 'amistoso' || $(this).val() === 'campeonato') {
+      if ($(this).val() === 'Amistoso' || $(this).val() === 'Campeonato') {
         $('#btnGerarOficio').show(); // Mostra o botão "Gerar Ofício"
       }
     });
 
 
 // Exibir/ocultar botões de motivo ao preencher/limpar data e horários ou selecionar/desselecionar "Transporte"
-    $('#dataDesejada, #horaInicial, #horaFinal, #local, #horaJogo, #horaSaida').on('change', function() {
+    $('#dataDesejada, #horaInicial, #horaFinal, #localviagem, #horaJogo, #horaSaida').on('change', function() {
       if ($('#dataDesejada').val() !== '' && $('#horaInicial').val() !== '' && $('#horaFinal').val() !== '' && $('input[name="opcao"]:checked').val() === 'estadioMunicipal') {
         $('.motivo-container').show();
-      } else if ($('input[name="opcao"]:checked').val() === 'transporte' && $('#local').val() !== '' && $('#data').val() !== '' && $('#horaJogo').val() !== '' && $('#horaSaida').val() !== '') {
+      } else if ($('input[name="opcao"]:checked').val() === 'transporte' && $('#localviagem').val() !== '' && $('#dataviagem').val() !== '' && $('#horaJogo').val() !== '' && $('#horaSaida').val() !== '') {
         $('.motivo-container').show();
       } else {
         $('.motivo-container').hide();
@@ -51,11 +51,11 @@ $(document).ready(function() {
       var numeroTelefone = $('#numeroTelefone').val();
       var nomeTime = $('#nomeTime').val();
       var opcao = $('input[name="opcao"]:checked').val();
-      var dataDesejada = $('#dataDesejada').val();
+      var dataDesejada =  moment($('#dataDesejada').val()).format("DD/MM/YYYY");
       var horaInicial = $('#horaInicial').val();
       var horaFinal = $('#horaFinal').val();
-      var local = $('#local').val();
-      var data = $('#data').val();
+      var localviagem = $('#localviagem').val();
+      var dataviagem = $('#dataviagem').val();
       var horaJogo = $('#horaJogo').val();
       var horaSaida = $('#horaSaida').val();
       var motivo = $('input[name="motivo"]:checked').val();
@@ -72,13 +72,25 @@ $(document).ready(function() {
           { text: 'http://www.andrelandia.mg.gov.br \n\n\n', fontSize: 8, alignment: 'center' },
           { text: 'Andrelândia, ' + dataAtual, fontSize: 12, alignment: 'right' },
           { text: '\n\nOfício', fontSize: 12, alignment: 'left'},
-          { text: '\n\n REF.: Solicitação de apoio para Atividades Esportivas', fontSize: 12, alignment: 'left'},
-          { text: '\n\n\n Campo ###########################################################.',
+          { text: '\n\n REF.: Solicitação de espaço para atividades esportivas', fontSize: 12, alignment: 'left'},
+          { text: '\n\n\nEscrevo em nome do time ' + nomeTime + ', a fim de solicitar gentilmente a disponibilização do estádio municipal para a prática esportiva regular.',
             fontSize: 12,
             margin: [0, 0, 0, 10],
             width: 400, // Largura máxima do parágrafo
             alignment: 'justify' // Alinhamento do texto (opcional)
           },
+          { text: 'Data: ' + dataDesejada, fontSize: 12,bold: true, alignment: 'left'},
+          { text: 'Horário de Início: ' + horaInicial, fontSize: 12,bold: true, alignment: 'left'},
+          { text: 'Horário de Término: ' + horaFinal, fontSize: 12,bold: true, alignment: 'left'},
+          { text: 'Motivo: ' + motivo, fontSize: 12,bold: true, alignment: 'left'},
+          { text: '\nAcreditamos que a disponibilização de um espaço público designado para a prática de esportes trará inúmeros benefícios para nossa cidade, como promover a atividade física, melhorar a qualidade de vida dos moradores e criar um ambiente propício para o convívio social saudável.\n\nSendo assim, solicitamos que o órgão responsável considere nossa solicitação e, se possível, nos forneça o espaço público adequado para a prática esportiva regular.\n\nEstamos dispostos a colaborar e contribuir para a manutenção e conservação do local, bem como para a promoção de eventos e atividades esportivas que beneficiem a cidade.\n\nAgradecemos sinceramente sua atenção e aguardamos ansiosamente sua resposta positiva a essa solicitação.\n\nAtenciosamente,',
+            fontSize: 12,
+            margin: [0, 0, 0, 10],
+            width: 400, // Largura máxima do parágrafo
+            alignment: 'justify' // Alinhamento do texto (opcional)
+          },
+          { text: '\n\n' + nomeSolicitante + '\nTel: ' + numeroTelefone, fontSize: 12, alignment: 'center'},
+
         ]}
       } else if (opcao === 'transporte') {
       var docDefinition = {
@@ -90,26 +102,26 @@ $(document).ready(function() {
           { text: 'http://www.andrelandia.mg.gov.br \n\n\n', fontSize: 8, alignment: 'center' },
           { text: 'Andrelândia, ' + dataAtual, fontSize: 12, alignment: 'right' },
           { text: '\n\nOfício', fontSize: 12, alignment: 'left'},
-          { text: '\n\n REF.: Solicitação de apoio para Atividades Esportivas', fontSize: 12, alignment: 'left'},
-          { text: '\n\n\n Transporte ###########################################################.',
-            fontSize: 12,
-            margin: [0, 0, 0, 10],
-            width: 400, // Largura máxima do parágrafo
-            alignment: 'justify' // Alinhamento do texto (opcional)
-          },
-          //{ text: 'Nome do Solicitante: ' + nomeSolicitante, fontSize: 12 },
-          //{ text: 'Número de Telefone: ' + numeroTelefone, fontSize: 12 },
-          //{ text: 'Nome do Time Solicitante: ' + nomeTime, fontSize: 12 },
-          //{ text: 'Tipo de Solicitação: ' + opcao, fontSize: 12 },
-          //{ 
-            //text: 'Este é um texto com várias linhas que será ajustado para caber na página1. Este é um texto com várias linhas que será ajustado para caber na página.2 2Este é um texto com várias linhas que será ajustado para caber na página. 3Este é um texto com várias linhas que será ajustado para caber na página. 4Este é um texto com várias linhas que será ajustado para caber na página.',
-            //fontSize: 12,
-            //margin: [0, 0, 0, 10],
-            //width: 400, // Largura máxima do parágrafo
-            //alignment: 'justify' // Alinhamento do texto (opcional)
-          //},
-        ]
-      };
+          { text: '\n\n REF.: Solicitação de transporte para atividades esportivas', fontSize: 12, alignment: 'left'},
+          { text: '\n\n\nEscrevo em nome do time ' + nomeTime + ', a fim de solicitar gentilmente a disponibilização de meio de transporte coletivo para auxílio na prática esportiva regular.',
+          fontSize: 12,
+          margin: [0, 0, 0, 10],
+          width: 400, // Largura máxima do parágrafo
+          alignment: 'justify' // Alinhamento do texto (opcional)
+        },
+        { text: 'Data: ' + dataviagem, fontSize: 12,bold: true, alignment: 'left'},
+        { text: 'Horário da saída: ' + horaSaida, fontSize: 12,bold: true, alignment: 'left'},
+        { text: 'Horário do jogo: ' + horaJogo, fontSize: 12,bold: true, alignment: 'left'},
+        { text: 'Motivo: ' + motivo, fontSize: 12,bold: true, alignment: 'left'},
+        { text: 'Local: ' + localviagem, fontSize: 12,bold: true, alignment: 'left'},
+        { text: '\nAcreditamos que a disponibilização de recurso designado para a prática de esportes trará inúmeros benefícios para nossa cidade, como promover a atividade física, melhorar a qualidade de vida dos moradores e criar um ambiente propício para o convívio social saudável.\n\nSendo assim, solicitamos que o órgão responsável considere nossa solicitação e, se possível, nos forneça o transporte público adequado para a prática esportiva regular.\n\nEstamos dispostos a colaborar e contribuir para a manutenção e conservação do meio disponibilizado, bem como para a promoção de eventos e atividades esportivas que beneficiem a cidade.\n\nAgradecemos sinceramente sua atenção e aguardamos ansiosamente sua resposta positiva a essa solicitação.\n\nAtenciosamente,',
+        fontSize: 12,
+        margin: [0, 0, 0, 10],
+        width: 400, // Largura máxima do parágrafo
+        alignment: 'justify' // Alinhamento do texto (opcional)
+      },
+      { text: '\n\n' + nomeSolicitante + '\nTel: ' + numeroTelefone, fontSize: 12, alignment: 'center'},
+        ]};
     }
 // Gerando o arquivo PDF
     pdfMake.createPdf(docDefinition).download('oficio.pdf');
