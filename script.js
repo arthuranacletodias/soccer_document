@@ -55,7 +55,7 @@ $(document).ready(function() {
       var horaInicial = $('#horaInicial').val();
       var horaFinal = $('#horaFinal').val();
       var localviagem = $('#localviagem').val();
-      var dataviagem = $('#dataviagem').val();
+      var dataviagem = moment($('#dataviagem').val()).format("DD/MM/YYYY");
       var horaJogo = $('#horaJogo').val();
       var horaSaida = $('#horaSaida').val();
       var motivo = $('input[name="motivo"]:checked').val();
